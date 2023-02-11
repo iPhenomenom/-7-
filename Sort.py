@@ -44,7 +44,7 @@ def sort_func(path_dir):
             for suff in dir_suff_dict:
                 if p_file.suffix.lower() in dir_suff_dict[suff]:
                     if p_file.suffix.lower() in dir_suff_dict['Archives']:
-                        shutil.unpack_archive(p_file, os.path.join(cur_dir, 'Archives', p_file.name))
+                        shutil.unpack_archive(p_file, os.path.join(cur_dir, 'Archives', p_file.name[0:-len(p_file.suffix)]))
                         continue
                     dir_img = cur_dir / suff
                     dir_img.mkdir(exist_ok=True)
